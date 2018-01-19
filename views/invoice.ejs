@@ -13,13 +13,12 @@
 			<th> Discount (%) </th>
 			<th> Quantity </th>
 			<th> Taxable Value </th>
-			<th> Spot Discount on Taxable value </th>
 			<th> Tax </th>
 			<th> Total </th>
 		</tr>
 	</thead>
 	<tbody>
-		<% let grandTotal =0; %>
+		<% let grandTotal = 0; let totalTaxableValue = 0; %>
 		<% for(let i=0; i<name.length; i++) {%>
 		<tr>
 			<td> <%= name[i] %> </td>
@@ -28,12 +27,12 @@
 			<td> <%= discount[i] %> </td>
 			<td> <%= quantity[i] %> </td>
 			<td> <%  var taxableValue = price[i]*quantity[i]*(1-discount[i]/100)%> <%=taxableValue%></td>
-			<td> <%= spotDiscount[i] %> </td>
-			<td> <% var tax = (taxableValue-spotDiscount[i])*gst[i]/100 %> <%=tax%></td>
-			<td> <% var total = ((taxableValue-spotDiscount[i])+tax).toFixed(2) %> <%=total%> </td>
-			<% grandTotal+=total }%>
+			<td> <% var tax = (taxableValue)*gst[i]/100 %> <%=tax%></td>
+			<td> <% var total = Number(((taxableValue)+tax).toFixed(2)) %> <%=total%> </td>
+			<% grandTotal+=total; totalTaxableValue+=taxableValue }%>
 		</tr>
-		<tr><td>Total Amount To Pay:</td> <td><%=total%></td></tr>
+
+		<tr><td>Spot Discount on Total Taxable Value</td><td><%=spotDiscount%> on<%=totalTaxableValue%></td><td>Total Amount To Pay:</td> <td><%=(grandTotal-spotDiscount)%></td></tr>
 	</tbody>
 </table>
 

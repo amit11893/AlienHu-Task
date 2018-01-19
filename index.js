@@ -10,6 +10,10 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res){
 	res.sendFile("index.html")
 })
+
+app.get("/api", function(req, res){
+	res.json({message: "Hello World"})
+})
 app.post("/invoice", function(req, res){
 	let name = req.body.productName,
 	    price = req.body.price,

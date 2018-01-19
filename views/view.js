@@ -33,9 +33,10 @@ f.appendChild(price);
 f.appendChild(gst);
 f.appendChild(quantity);
 f.appendChild(discount);
-f.appendChild(spotDiscount);
 
 var form = document.getElementById('details');
 form.insertBefore(f, btn);
 })
+
+
 
