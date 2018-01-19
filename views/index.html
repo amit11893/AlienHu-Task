@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GST Invoice Calculator</title>
+	<link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+	<form id="details" method="POST" action="/invoice">	
+	<h2>Product Details</h2>
+    <div class="form-text">
+      <input type=text id="1" value="Name" disabled="disabled"/>
+      <input type=text id="2" value="Price (INR)" disabled="disabled"/> 
+      <input type=text id="3" value="GST (%)" disabled="disabled"/>
+      <input type=text id="4"  value="Quantity" disabled="disabled"/>
+      <input type=text id="5" value="Discount (%)" disabled="disabled"/>
+      <input type=text id="5" value="Spot Discount (INR)" disabled="disabled"/>
+    </div> 
+	    <button type="button" id="btn">add new item</button>
+	    <input type="submit" value="Submit">
+    </form>
+	<script type="text/javascript" src="./view.js"></script>
+</form>
+</body>
+</html>
+
+
